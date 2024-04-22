@@ -87,7 +87,7 @@ RUN . /opt/ros/$ROS_DISTRO/setup.bash \
 WORKDIR /home/$USER/catkin_ws
 
 RUN . /opt/ros/$ROS_DISTRO/setup.bash \ 
-    . /home/$USER/cartographer_ws/install_isolated/setup.bash \ 
+    # . /home/$USER/cartographer_ws/install_isolated/setup.bash \ 
     && sudo apt update \
 #   && sudo rosdep init \
 #   && rosdep update --rosdistro $ROS_DISTRO \
@@ -96,9 +96,9 @@ RUN . /opt/ros/$ROS_DISTRO/setup.bash \
   && catkin config --install \
   && catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release
 
-RUN sudo chown -R $USER:$USER /ros_entrypoint.sh 
+RUN sudo chmod 777 /ros_entrypoint.sh && sudo chown -R $USER:$USER /ros_entrypoint.sh
 RUN echo 'source /opt/ros/${ROS_DISTRO}/setup.bash' >> /home/$USER/.bashrc
-RUN echo 'source /home/$USER/cartographer_ws/install_isolated/setup.bash' >> /home/$USER/.bashrc
+# RUN echo 'source /home/$USER/cartographer_ws/install_isolated/setup.bash' >> /home/$USER/.bashrc
 RUN echo 'source /home/$USER/catkin_ws/install/setup.bash' >> /home/$USER/.bashrc
 # ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
