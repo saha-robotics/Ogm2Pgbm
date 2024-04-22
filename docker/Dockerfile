@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-rosdep \
     && rm -rf /var/lib/apt/lists/*
 
-COPY ./ros_entrypoint.sh /
+COPY ./docker/ros_entrypoint.sh /ros_entrypoint.sh
 
 
 SHELL ["bash", "-c"]
