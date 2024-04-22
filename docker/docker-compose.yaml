@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+ ogm2pgbm:
+    container_name: ogm2pgbm
+    image: ghcr.io/saha-robotics/ogm2pgbm:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 50s
+        max_attempts: 5      
+    volumes:
+      - type: bind
+        source: /etc/timezone
+        target: /etc/timezone
+    tty: true
