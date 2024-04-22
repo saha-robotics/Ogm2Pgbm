@@ -11,7 +11,7 @@ jobs:
     ## Configurations
     ##############################################################
     env:
-      builder_ns: ghcr.io/saha-robotics/Ogm2Pgbm
+      builder_ns: ghcr.io/saha-robotics/ogm2pgbm
       tag: latest
     ##############################################################
     steps:
@@ -41,6 +41,6 @@ jobs:
             BUILDER_NS=${{ env.builder_ns }}
             TAG=${{ env.tag }}
           push: true
-          tags: ${{ env.builder_ns }}/rmf:${{ env.tag }}
+          tags: ${{ env.builder_ns }}:${{ env.tag }}
 
  
