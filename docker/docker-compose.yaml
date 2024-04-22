@@ -16,3 +16,4 @@ services:
         source: /etc/timezone
         target: /etc/timezone
     tty: true
+    # entrypoint: /ros_entrypoint.sh
