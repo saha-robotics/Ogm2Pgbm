@@ -48,7 +48,7 @@ SHELL ["bash", "-c"]
 ENV USER=sr
 ENV DEBIAN_FRONTEND=noninteractive
 RUN  echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
-RUN sudo apt update && sudo apt install -y -q keyboard-configuration python3-wstool ninja-build
+RUN sudo apt update && sudo apt install -y -q keyboard-configuration python3-wstool ninja-build stow
 RUN useradd -ms /bin/bash $USER
 RUN adduser $USER sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
