@@ -58,7 +58,6 @@ USER $USER
 #
 # setup entrypoint
 #
-RUN echo 'source /opt/ros/${ROS_DISTRO}/setup.bash' >> /home/$USER/.bashrc
 
 WORKDIR /home/$USER
 
