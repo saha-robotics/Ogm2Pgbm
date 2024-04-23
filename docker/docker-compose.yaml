@@ -15,5 +15,15 @@ services:
       - type: bind
         source: /etc/timezone
         target: /etc/timezone
+      - type: bind 
+        source: /tmp/.X11-unix
+        target: /tmp/.X11-unix    
+      - type: bind 
+        source: ${XAUTHORITY}  
+        target: ${XAUTHORITY}        
     tty: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=${XAUTHORITY}
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
     # entrypoint: /ros_entrypoint.sh
